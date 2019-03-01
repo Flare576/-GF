@@ -4,14 +4,30 @@
 <link rel='shortcut icon' type='image/x-icon' href='/-GF/favicon.ico' />
 <title>Welcome Galactic Federation Members</title>
 
+<script>
+  function toggleSection(divName) {
+    const element = document.getElementById(divName);
+    if (element.style.display === 'block') {
+      element.style.display = 'none';
+    } else {
+      element.style.display = 'block';
+    }
+  }
+</script>
+<style>
+  img {
+    display: none;
+  }
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <base href="/-GF/">
 </head>
 <body>
   <h3>Super-useful data</h3>
-  <div><img src="https://i.redd.it/0qe4w9c25lh21.jpg" /></div>
-  <div><img src="elite-frags.png" /></div>
-  <div>* I couldn't find the original :/</div>
+  <div><a onClick="toggleSection('scan-image')">Scan chain rewards</a></div>
+  <div><img id="scan-image" src="https://i.redd.it/0qe4w9c25lh21.jpg" /></div>
+  <div><a onClick="toggleSection('elite-image')">Elite Rewards</a></div>
+  <div><img id="elite-image" src="elite-frags.png" /></div>
   <h3>Resources</h3>
   <div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a></div>
 </body>

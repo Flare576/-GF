@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel='shortcut icon' type='image/x-icon' href='/-GF/favicon.ico' />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 <title>Welcome Galactic Federation Members</title>
 
 <script>
@@ -15,8 +16,24 @@
   }
 </script>
 <style>
-  img {
+  body {
+    font-family: "Open Sans";
+  }
+
+  .toggled {
     display: none;
+  }
+  
+  .toggler {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: #4267B2;
+    width: 200px;
+    color: white;
+    cursor: pointer;
+    font-size: 18;
+    font-weight: bold;
   }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -24,10 +41,27 @@
 </head>
 <body>
   <h3>Super-useful data</h3>
-  <div><a onClick="toggleSection('scan-image')">Scan chain rewards</a></div>
-  <div><img id="scan-image" src="https://i.redd.it/0qe4w9c25lh21.jpg" /></div>
-  <div><a onClick="toggleSection('elite-image')">Elite Rewards</a></div>
-  <div><img id="elite-image" src="elite-frags.png" /></div>
+  <div class="container">
+    <div class="toggler" onClick="toggleSection('scan-image')">
+      Scan chain rewards
+    </div>
+    <div id="scan-image" class="toggled"><img src="https://i.redd.it/0qe4w9c25lh21.jpg" /></div>
+  </div>
+  <div class="container">
+    <div class="toggler" onClick="toggleSection('elite-image')">
+      Elite Rewards
+    </div>
+    <div id="elite-image" class="toggled"><img src="./images/elite-frags.png" /></div>
+  </div>
+  <div class="container">
+    <div class="toggler" onClick="toggleSection('falcon-tank-image')">
+      Falcon II Frigate Tank
+    </div>
+    <div id="falcon-tank-image" class="toggled">
+      <img src="./images/falcon-tank-weapons.png" />
+      <img src="./images/falcon-tank-components.png" />
+    </div>
+  </div>
   <h3>Resources</h3>
   <div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a></div>
 </body>

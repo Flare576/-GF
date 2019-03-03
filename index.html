@@ -1,193 +1,209 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
-<title>Welcome Galactic Federation Members</title>
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"/>
+    <title>Welcome Galactic Federation Members</title>
 
-<script>
-  function toggleSection(divName) {
-    const element = document.getElementById(divName);
-    if (element.style.display === 'block') {
-      element.style.display = 'none';
-    } else {
-      element.style.display = 'block';
-    }
-  }
-</script>
-<style type="text/css">
-  body {
-    font-family: "Open Sans";
-  }
+    <script>
+        function toggleSection(source, divName) {
+            const element = document.getElementById(divName);
+            const show = element.style.display !== 'block';
+            Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
+            Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggler'), (e) => e.classList.remove('active'));
+            if (show) {
+                source.classList.add('active');
+                element.style.display = 'block';
+            }
+        }
+    </script>
+    <style type="text/css">
+        body {
+            font-family: "Open Sans";
+        }
 
-  .toggled {
-    display: none;
-  }
+        .container {
+        }
 
-  .toggled img {
-    max-width: 700px;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .toggler {
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-    background-color: #4267B2;
-    width: 200px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .quick-note {
-    background-color: #EEEEEE;
-  }
+        .toggled {
+            display: none;
+        }
 
-  .written {
-    width: 600px;
-    margin-left: 40px;
-  }
+        .toggled img {
+            max-width: 700px;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-  .dailies ul {
-    list-style: none;
-  }
+        .toggler {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            background-color: #4267B2;
+            width: 200px;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
 
-  .item {
-    font-style: italic;
-  }
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<base href="/-GF/">
+        .active {
+            background-color: #243162;
+        }
+
+        .quick-note {
+            background-color: #EEEEEE;
+        }
+
+        .written {
+            width: 600px;
+            margin-left: 40px;
+        }
+
+        .dailies ul {
+            list-style: none;
+        }
+
+        .item {
+            font-style: italic;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <base href="/-GF/">
 </head>
 <body>
-  <h3>Super-useful data</h3>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('scan-image')">
-      Scan chain rewards
+<h3>Super-useful data</h3>
+<div class="container">
+    <div class="toggler" onClick="toggleSection(this, 'scan-image')">
+        Scan Chain Rewards
     </div>
-    <div id="scan-image" class="toggled"><img src="https://i.redd.it/0qe4w9c25lh21.jpg" /></div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('elite-image')">
-      Elite Rewards
+    <div class="toggler" onClick="toggleSection(this, 'elite-image')">
+        Elite Rewards
     </div>
-    <div id="elite-image" class="toggled"><img src="./images/elite-frags.png" /></div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('dailies')">
-      Dailies Checklist
+    <div class="toggler" onClick="toggleSection(this, 'dailies')">
+        Dailies Checklist
     </div>
+
+    <div class="toggler" onClick="toggleSection(this, 'tanking')">
+        Tanking Guide
+    </div>
+    <div class="toggler" onClick="toggleSection(this, 'quick-tips')">
+        Quick Tips
+    </div>
+
+    <div id="scan-image" class="toggled"><img src="https://i.redd.it/0qe4w9c25lh21.jpg"/></div>
+    <div id="elite-image" class="toggled"><img src="./images/elite-frags.png"/></div>
     <div id="dailies" class="toggled written dailies">
-      <div>To accomplish all of your dailies with a net-positive Gec and admiral refresh, do the following:</div>
-      <ul>
-        <li><input type=checkbox />Engage in 15 battles (15 Points)</li>
-        <li><input type=checkbox />Loot the debris from each. If you don't reach 120k minerals, mine until complete (15 Points)</li>
-        <li><input type=checkbox />Complete all 3 of your legion missions (15 Points)</li>
-        <li><input type=checkbox />Open Alliance menu, tap donate/Ok 5 times (15 Points)</li>
-        <li><input type=checkbox />Build 10 ships (15 Points)</li>
-        <li><input type=checkbox />Use 300,000 Minerals (Big ships, Station upgrades, etc.) (15 Points)</li>
-        <li><input type=checkbox />Probe 3 systems* (15 Points)</li>
-        <li><input type=checkbox />Go into Items - Resources and find either a) 10,000 Minerals, b) 1,000 Crystals, or c) 500 alloy (whichever you have none of). Buy and Use 3 times. (20 Points)</li>
-        <li><input type=checkbox />Accept the Free Items 5 times.** (15 Points)</li>
-        <li><input type=checkbox />Open Navy Acadamy, use a refresh token. (10 Points)</li>
-        <br/>
-        <div>* 60 Minute refresh</div>
-        <div>** 37 Minute refresh</div>
-      </ul>
-      <div class="quick-note">
-        <p>Note: The reward for 90 Points is 50GEC, and buying Items Resources should cost 30GEC. You also get 80GEC for 120 Points, for a net gain of 100GEC/day.</p>
-        <p>The 150 Point box will yield 2 refresh tokens, resulting in a net gain of 1.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('tanking')">
-      Tanking Guide
+        <div>To accomplish all of your dailies with a net-positive Gec and admiral refresh, do the following:</div>
+        <ul>
+            <li><input type="checkbox"/>Engage in 15 battles (15 Points)</li>
+            <li><input type="checkbox"/>Loot the debris from each. If you don't reach 120k minerals, mine until complete
+                (15 Points)
+            </li>
+            <li><input type="checkbox"/>Complete all 3 of your legion missions (15 Points)</li>
+            <li><input type="checkbox"/>Open Alliance menu, tap donate/Ok 5 times (15 Points)</li>
+            <li><input type="checkbox"/>Build 10 ships (15 Points)</li>
+            <li><input type="checkbox"/>Use 300,000 Minerals (Big ships, Station upgrades, etc.) (15 Points)</li>
+            <li><input type="checkbox"/>Probe 3 systems* (15 Points)</li>
+            <li><input type="checkbox"/>Go into Items - Resources and find either a) 10,000 Minerals, b) 1,000 Crystals,
+                or c) 500 alloy (whichever you have none of). Buy and Use 3 times. (20 Points)
+            </li>
+            <li><input type="checkbox"/>Accept the Free Items 5 times.** (15 Points)</li>
+            <li><input type="checkbox"/>Open Navy Acadamy, use a refresh token. (10 Points)</li>
+            <br/>
+            <div>* 60 Minute refresh</div>
+            <div>** 37 Minute refresh</div>
+        </ul>
+        <div class="quick-note">
+            <p>Note: The reward for 90 Points is 50GEC, and buying Items Resources should cost 30GEC. You also get 80GEC
+                for 120 Points, for a net gain of 100GEC/day.</p>
+            <p>The 150 Point box will yield 2 refresh tokens, resulting in a net gain of 1.</p>
+        </div>
     </div>
     <div id="tanking" class="toggled written">
-      <p>"Tanking" is a method of fighting in which you direct all damage to a single (Tank) fleet. Generally, you want
-      this fleet made of of Frigates, but as you get stronger you may want to mix in Destroyers.</p>
-      <p>Ideally, when fighting, you'll have one Tank fleet, one fleet with your strongest ships, and then any other fleets
-      made up of the rest of your strong ships.</p>
-      <p>Begin by moving all of your combat fleets to VERY close proximity to the target. Once all fleets arrive, initiate
-      combat with ONLY your Tank fleet. Once the battle starts, the other fleets will auto-engage.</p>
-      <p>After combat concludes you will only have your Tank fleet damaged. If you want to continue fighting, move your
-      non-tank fleets close to the next target, but (if you can) bring your tank back to your station.</p>
-      <p>When your tank fleet arrives <strong>DO NOT REPAIR IT</strong>. Tap on each ship type in the fleet and then tap
-      "Send to Dock", then use the slider to re-stock the fleet.</p>
-      <p>Occasionally, you'll want to then tap on "Dock" on the top and initiate repair from there; you can still only
-      have 1 repair going at a time, but this way you don't ALSO lock down a fleet.</p>
-      <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
-      the other fleets have already arrived), and repeat the process.</p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('quick-tips')">
-      Quick Tips
+        <p>"Tanking" is a method of fighting in which you direct all damage to a single (Tank) fleet. Generally, you
+            want
+            this fleet made of of Frigates, but as you get stronger you may want to mix in Destroyers.</p>
+        <p>Ideally, when fighting, you'll have one Tank fleet, one fleet with your strongest ships, and then any other
+            fleets
+            made up of the rest of your strong ships.</p>
+        <p>Begin by moving all of your combat fleets to VERY close proximity to the target. Once all fleets arrive,
+            initiate
+            combat with ONLY your Tank fleet. Once the battle starts, the other fleets will auto-engage.</p>
+        <p>After combat concludes you will only have your Tank fleet damaged. If you want to continue fighting, move
+            your
+            non-tank fleets close to the next target, but (if you can) bring your tank back to your station.</p>
+        <p>When your tank fleet arrives <strong>DO NOT REPAIR IT</strong>. Tap on each ship type in the fleet and then
+            tap
+            "Send to Dock", then use the slider to re-stock the fleet.</p>
+        <p>Occasionally, you'll want to then tap on "Dock" on the top and initiate repair from there; you can still only
+            have 1 repair going at a time, but this way you don't ALSO lock down a fleet.</p>
+        <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
+            the other fleets have already arrived), and repeat the process.</p>
     </div>
     <div id="quick-tips" class="toggled written">
-      <ul>
-        <li>Always have a Frigate in your fleet; it will balance your movement and jump speed to keep your arrivals synced.</li>
-        <li>When upgrading your station, you'll get an extra build slot.</li>
-        <li>When helping build Alliance structures, you can only send on Workship per building.</li>
-        <li>You can retreat a fleet from a battle by tapping on it from the battle screen, then tapping the "Return" button.
-          Doing so will immediately move the fleet back to your station, but cause 10% damage. This can be a fast way to
-        return from long distances... at a price.</li>
-        <li>Stabilizing fleets cannot move... but they can fight back.</li>
-        <li>The <span class="item">1,000 Station Jump Charge</span> item will add 1/8 - 1/4 of your jump energy back.</li>
-      </ul>
+        <ul>
+            <li>Always have a Frigate in your fleet; it will balance your movement and jump speed to keep your arrivals
+                synced.
+            </li>
+            <li>When upgrading your station, you'll get an extra build slot.</li>
+            <li>When helping build Alliance structures, you can only send on Workship per building.</li>
+            <li>You can retreat a fleet from a battle by tapping on it from the battle screen, then tapping the "Return"
+                button.
+                Doing so will immediately move the fleet back to your station, but cause 10% damage. This can be a fast
+                way to
+                return from long distances... at a price.
+            </li>
+            <li>Stabilizing fleets cannot move... but they can fight back.</li>
+            <li>The <span class="item">1,000 Station Jump Charge</span> item will add 1/8 - 1/4 of your jump energy
+                back.
+            </li>
+        </ul>
     </div>
-  </div>
-  <h3>Ship Loadouts</h3>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('falcon-tank-image')">
-      Falcon II Frigate Tank (Missile)
+</div>
+
+<h3>Ship Loadouts</h3>
+<div class="container">
+    <div class="toggler" onClick="toggleSection(this, 'falcon-tank-image')">
+        Falcon II Frigate Tank (Missile)
     </div>
+    <div class="toggler" onClick="toggleSection(this, 'falcon-tank2-image')">
+        Falcon II Frigate Tank (Kinetic)
+    </div>
+    <div class="toggler" onClick="toggleSection(this, 'rupturer-image')">
+        Rupturer Light Cruiser
+    </div>
+    <div class="toggler" onClick="toggleSection(this, 'warrior-image')">
+        Warrior Light Cruiser
+    </div>
+    <div class="toggler" onClick="toggleSection(this, 'raynor-image')">
+        Raynor Battle Cruiser
+    </div>
+
     <div id="falcon-tank-image" class="toggled">
-      <img src="./images/falcon-tank-weapons.jpg" />
-      <img src="./images/falcon-tank-components.jpg" />
-    </div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('falcon-tank2-image')">
-      Falcon II Frigate Tank (Kinetic)
+        <img src="./images/falcon-tank-weapons.jpg"/>
+        <img src="./images/falcon-tank-components.jpg"/>
     </div>
     <div id="falcon-tank2-image" class="toggled">
-      <img src="./images/falcon-tank2-weapons.png" />
-      <img src="./images/falcon-tank2-components.png" />
-    </div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('rupturer-image')">
-      Rupturer Light Cruiser
+        <img src="./images/falcon-tank2-weapons.png"/>
+        <img src="./images/falcon-tank2-components.png"/>
     </div>
     <div id="rupturer-image" class="toggled">
-      <img src="./images/rupturer-weapons.png" />
-      <img src="./images/rupturer-components.png" />
-    </div>
-  </div>
-    <div class="container">
-    <div class="toggler" onClick="toggleSection('warrior-image')">
-      Warrior Light Cruiser
-    </div>
-    <div id="warrior-image" class="toggled">
-      <img src="./images/warrior-weapons.png" />
-      <img src="./images/warrior-components.png" />
-    </div>
-  </div>
-  <div class="container">
-    <div class="toggler" onClick="toggleSection('raynor-image')">
-      Raynor Battle Cruiser
+        <img src="./images/rupturer-weapons.png"/>
+        <img src="./images/rupturer-components.png"/>
     </div>
     <div id="raynor-image" class="toggled">
-      <img src="./images/raynor-weapons.png" />
-      <img src="./images/raynor-components.png" />
+        <img src="./images/raynor-weapons.png"/>
+        <img src="./images/raynor-components.png"/>
     </div>
-  </div>
-  <h3>Resources</h3>
-  <div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a></div>
+    <div id="warrior-image" class="toggled">
+        <img src="./images/warrior-weapons.png"/>
+        <img src="./images/warrior-components.png"/>
+    </div>
+</div>
+<h3>Resources</h3>
+<div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a></div>
 </body>
 </html>

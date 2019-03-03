@@ -51,8 +51,12 @@
     margin-left: 40px;
   }
 
-  .written ul {
+  .dailies ul {
     list-style: none;
+  }
+
+  .item {
+    font-style: italic;
   }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -76,7 +80,7 @@
     <div class="toggler" onClick="toggleSection('dailies')">
       Dailies Checklist
     </div>
-    <div id="dailies" class="toggled written">
+    <div id="dailies" class="toggled written dailies">
       <div>To accomplish all of your dailies with a net-positive Gec and admiral refresh, do the following:</div>
       <ul>
         <li><input type=checkbox />Engage in 15 battles (15 Points)</li>
@@ -97,6 +101,44 @@
         <p>Note: The reward for 90 Points is 50GEC, and buying Items Resources should cost 30GEC. You also get 80GEC for 120 Points, for a net gain of 100GEC/day.</p>
         <p>The 150 Point box will yield 2 refresh tokens, resulting in a net gain of 1.</p>
       </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="toggler" onClick="toggleSection('tanking')">
+      Tanking Guide
+    </div>
+    <div id="tanking" class="toggled written">
+      <p>"Tanking" is a method of fighting in which you direct all damage to a single (Tank) fleet. Generally, you want
+      this fleet made of of Frigates, but as you get stronger you may want to mix in Destroyers.</p>
+      <p>Ideally, when fighting, you'll have one Tank fleet, one fleet with your strongest ships, and then any other fleets
+      made up of the rest of your strong ships.</p>
+      <p>Begin by moving all of your combat fleets to VERY close proximity to the target. Once all fleets arrive, initiate
+      combat with ONLY your Tank fleet. Once the battle starts, the other fleets will auto-engage.</p>
+      <p>After combat concludes you will only have your Tank fleet damaged. If you want to continue fighting, move your
+      non-tank fleets close to the next target, but (if you can) bring your tank back to your station.</p>
+      <p>When your tank fleet arrives <strong>DO NOT REPAIR IT</strong>. Tap on each ship type in the fleet and then tap
+      "Send to Dock", then use the slider to re-stock the fleet.</p>
+      <p>Occasionally, you'll want to then tap on "Dock" on the top and initiate repair from there; you can still only
+      have 1 repair going at a time, but this way you don't ALSO lock down a fleet.</p>
+      <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
+      the other fleets have already arrived), and repeat the process.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="toggler" onClick="toggleSection('quick-tips')">
+      Quick Tips
+    </div>
+    <div id="quick-tips" class="toggled written">
+      <ul>
+        <li>Always have a Frigate in your fleet; it will balance your movement and jump speed to keep your arrivals synced.</li>
+        <li>When upgrading your station, you'll get an extra build slot.</li>
+        <li>When helping build Alliance structures, you can only send on Workship per building.</li>
+        <li>You can retreat a fleet from a battle by tapping on it from the battle screen, then tapping the "Return" button.
+          Doing so will immediately move the fleet back to your station, but cause 10% damage. This can be a fast way to
+        return from long distances... at a price.</li>
+        <li>Stabilizing fleets cannot move... but they can fight back.</li>
+        <li>The <span class="item">1,000 Station Jump Charge</span> item will add 1/8 - 1/4 of your jump energy back.</li>
+      </ul>
     </div>
   </div>
   <h3>Ship Loadouts</h3>

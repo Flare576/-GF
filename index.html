@@ -1,233 +1,260 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-        "http://www.w3.org/TR/html4/strict.dtd">
+"http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
-    <link rel="stylesheet" type="text/css"
-          href="//fonts.googleapis.com/css?family=Open+Sans"/>
-    <title>Welcome Galactic Federation Members</title>
+<link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
+<link rel="stylesheet" type="text/css"
+href="//fonts.googleapis.com/css?family=Open+Sans"/>
+<title>Welcome Galactic Federation Members</title>
 
-    <script>
-        function toggleSection(source, divName) {
-            const element = document.getElementById(divName);
-            const show = element.style.display !== 'block';
-            Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
-            Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggler'), (e) => e.classList.remove('active'));
-            if (show) {
-                source.classList.add('active');
-                element.style.display = 'block';
-            }
-        }
-    </script>
-    <style type="text/css">
-        body {
-            font-family: "Open Sans";
-        }
+<script>
+  function toggleSection(source, divName) {
+    const element = document.getElementById(divName);
+    const show = element.style.display !== 'block';
+    Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
+    Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggler'), (e) => e.classList.remove('active'));
+    if (show) {
+      source.classList.add('active');
+      element.style.display = 'block';
+    }
+  }
+</script>
+<style type="text/css">
+  body {
+    font-family: "Open Sans";
+  }
 
-        .container {
-        }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-        .toggled {
-            display: none;
-        }
+  .toggled {
+    display: none;
+  }
 
-        .toggled img {
-            max-width: 700px;
-            margin-bottom: 5px;
-        }
+  .toggled img {
+    max-width: 700px;
+    margin-bottom: 5px;
+  }
 
-        .toggler {
-            display: inline-block;
-            margin: 20px;
-            padding: 20px;
-            text-align: center;
-            background-color: #4267B2;
-            width: 200px;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+  .toggler {
+    min-width: 100px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: #4267B2;
+    width: 200px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
 
-        .active {
-            background-color: #243162;
-        }
+  .active {
+    background-color: #243162;
+  }
 
-        .quick-note {
-            background-color: #EEEEEE;
-        }
+  .quick-note {
+    background-color: #EEEEEE;
+  }
 
-        .written {
-            width: 600px;
-            margin-left: 40px;
-        }
+  .written {
+    width: 600px;
+    margin-left: 40px;
+  }
 
-        .dailies ul {
-            list-style: none;
-        }
+  .dailies ul {
+    list-style: none;
+  }
 
-        .item {
-            font-style: italic;
-        }
+  .item {
+    font-style: italic;
+  }
 
-        .mission {
-            font-style: italic;
-        }
-    </style>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <base href="/-GF/">
+  .mission {
+    font-style: italic;
+  }
+
+  .figure {
+    font-size: .75em;
+    color: #444444;
+    display: inline-block;
+    text-align: center;
+  }
+  .figure img {
+    display: block;
+  }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 <body>
 <h3>Super-useful data</h3>
-<div class="container">
+<div>
+  <div class="container">
     <div class="toggler" onClick="toggleSection(this, 'scan-image')">
-        Scan Chain Rewards
+      Scan Chain Rewards
     </div>
     <div class="toggler" onClick="toggleSection(this, 'elite-image')">
-        Elite Rewards
+      Elite Rewards
     </div>
     <div class="toggler" onClick="toggleSection(this, 'dailies')">
-        Dailies Checklist
+      Dailies Checklist
     </div>
-
     <div class="toggler" onClick="toggleSection(this, 'tanking')">
-        Tanking Guide
+      Tanking Guide
     </div>
     <div class="toggler" onClick="toggleSection(this, 'quick-tips')">
-        Quick Tips
+      Quick Tips
     </div>
-
-    <div id="scan-image" class="toggled"><img
-            src="https://i.redd.it/0qe4w9c25lh21.jpg"/></div>
-    <div id="elite-image" class="toggled"><img src="./images/elite-frags.png"/>
+    <div class="toggler" onClick="toggleSection(this, 'alliance-ships')">
+      Alliance Ship Analysis
     </div>
-    <div id="dailies" class="toggled written dailies">
-        <div style="color:red">I don't believe this is a full list yet. Feel free to comment on Discord.</div>
-        <div>To accomplish all of your dailies with a net-positive Gec and admiral refresh, do the following:</div>
-        <ul>
-            <li><input type="checkbox"/>Open Alliance menu, tap donate/Ok 5 times (15 Points)</li>
-            <li><input type="checkbox"/>Engage in 15 battles (15 Points)</li>
-            <li><input type="checkbox"/>Return your tank to dock each time, transfer ships to dock, and repair from dock
-                (15 Points if <span class="mission">Repair Ships</span> available
-            </li>
-            <li><input type="checkbox"/>Loot the debris from each. If you don't reach 120k minerals, mine until complete
-                (15 Points)
-            </li>
-            <li><input type="checkbox"/>Complete all 3 of your legion missions (15 Points)</li>
-            <li><input type="checkbox"/>Build 10 ships (15 Points)</li>
-            <li><input type="checkbox"/>Use Resources
-                <div class="written">300,000 Minerals (Big ships, Station upgrades, etc.) (15 Points)</div>
-                <div class="written">30,000 Cyrstals (Big ships, Research, etc.) (15 Points)</div>
-            </li>
-            <li><input type="checkbox"/>Use Items
-                <div class="written">Check your daily list for what sort of Resource Item is necessary. Go into Items -
-                    Resources and find the 10Gec item. Buy and Use 3 times. You will need to use a total of 5 items, so
-                    if you have some stocked, use them, otherwise Buy and Use 2 more times. (20 Points)
-                </div>
-            </li>
-            <li><input type="checkbox"/>Accept the Free Items 5 times.** (15 Points)</li>
-            <li><input type="checkbox"/>Open Navy Acadamy, use a refresh token. (10 Points)</li>
-            <li><input type="checkbox"/><strong>*If listed*</strong> Probe 3 systems* (15 Points)</li>
-            <li><input type="checkbox"/><strong>*If listed*</strong> Scan 8 Planets (consider starting a legion) (15
-                Points)
-            </li>
-            <li><input type="checkbox"/><strong>*If listed*</strong> Buy 8 items from Alliance Store <strong>Note: Ships
-                don't count</strong>(15 Points)
-            </li>
-            <li><input type="checkbox"/><strong>*If listed*</strong> Alliance Help (Just click the help button for 5
-                members! (15 Points)
-            </li>
-        </ul>
-        <br/>
-        <div>* 60 Minute refresh</div>
-        <div>** Refreshes 15minutes after the hour</div>
-        <div class="quick-note"><p>Note: The reward for 90 Points is 50GEC, and buying Items Resources should cost
-            30-50GEC. You also get 80GEC for 120 Points and 30GEC for refreshing the recruits twice for a net gain of
-            110-130GEC/day.</p>
-            <p>The 150 Point box will yield 2 refresh tokens, resulting in a net gain of 1.</p>
-        </div>
+  </div>
+  <div id="scan-image" class="toggled"><img src="images/scan_chain.jpg"/></div>
+  <div id="elite-image" class="toggled"><img src="images/elite-frags.png"/> </div>
+  <div id="dailies" class="toggled written dailies">
+    <div style="color:red">I don't believe this is a full list yet. Feel free to comment on Discord.</div>
+    <div>To accomplish all of your dailies with a net-positive Gec and admiral refresh, do the following:</div>
+    <ul>
+      <li><input type="checkbox"/>Open Alliance menu, tap donate/Ok 5 times (15 Points)</li>
+      <li><input type="checkbox"/>Engage in 15 battles (15 Points)</li>
+      <li><input type="checkbox"/>Return your tank to dock each time, transfer ships to dock, and repair from dock
+      (15 Points if <span class="mission">Repair Ships</span> available
+      </li>
+      <li><input type="checkbox"/>Loot the debris from each. If you don't reach 120k minerals, mine until complete
+      (15 Points)
+      </li>
+      <li><input type="checkbox"/>Complete all 3 of your legion missions (15 Points)</li>
+      <li><input type="checkbox"/>Build 10 ships (15 Points)</li>
+      <li><input type="checkbox"/>Use Resources
+      <div class="written">300,000 Minerals (Big ships, Station upgrades, etc.) (15 Points)</div>
+      <div class="written">30,000 Cyrstals (Big ships, Research, etc.) (15 Points)</div>
+      </li>
+      <li><input type="checkbox"/>Use Items
+      <div class="written">Check your daily list for what sort of Resource Item is necessary. Go into Items -
+        Resources and find the 10Gec item. Buy and Use 3 times. You will need to use a total of 5 items, so
+        if you have some stocked, use them, otherwise Buy and Use 2 more times. (20 Points)
+      </div>
+      </li>
+      <li><input type="checkbox"/>Accept the Free Items 5 times.** (15 Points)</li>
+      <li><input type="checkbox"/>Open Navy Acadamy, use a refresh token. (10 Points)</li>
+      <li><input type="checkbox"/><strong>*If listed*</strong> Probe 3 systems* (15 Points)</li>
+      <li><input type="checkbox"/><strong>*If listed*</strong> Scan 8 Planets (consider starting a legion) (15
+      Points)
+      </li>
+      <li><input type="checkbox"/><strong>*If listed*</strong> Buy 8 items from Alliance Store <strong>Note: Ships
+        don't count</strong>(15 Points)
+      </li>
+      <li><input type="checkbox"/><strong>*If listed*</strong> Alliance Help (Just click the help button for 5
+      members! (15 Points)
+      </li>
+    </ul>
+    <br/>
+    <div>* 60 Minute refresh</div>
+    <div>** Refreshes 15minutes after the hour</div>
+    <div class="quick-note"><p>Note: The reward for 90 Points is 50GEC, and buying Items Resources should cost
+      30-50GEC. You also get 80GEC for 120 Points and 30GEC for refreshing the recruits twice for a net gain of
+      110-130GEC/day.</p>
+      <p>The 150 Point box will yield 2 refresh tokens, resulting in a net gain of 1.</p>
     </div>
-    <div id="tanking" class="toggled written"><p>"Tanking" is a method of fighting in which you direct all damage to a
-        single (Tank) fleet. Generally, you want this fleet made of of Frigates, but as you get stronger you may want to
-        mix in Destroyers.</p>
-        <p>Ideally, when fighting, you'll have one Tank fleet, one fleet with your strongest ships, and then any other
-            fleets made up of the rest of your strong ships.</p>
-        <p>Begin by moving all of your combat fleets to VERY close proximity to the target. Once all fleets arrive,
-            initiate combat with ONLY your Tank fleet. Once the battle starts, the other fleets will auto-engage.</p>
-        <p>After combat concludes you will only have your Tank fleet damaged. If you want to continue fighting, move
-            your non-tank fleets close to the next target, but (if you can) bring your tank back to your station.</p>
-        <p>When your tank fleet arrives <strong>DO NOT REPAIR IT</strong>. Tap on each ship type in the fleet and then
-            tap "Send to Dock", then use the slider to re-stock the fleet.</p>
-        <p>Occasionally, you'll want to then tap on "Dock" on the top and initiate repair from there; you can still only
-            have 1 repair going at a time, but this way you don't ALSO lock down a fleet.</p>
-        <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
-            the other fleets have already arrived), and repeat the process.</p>
+  </div>
+  <div id="tanking" class="toggled written"><p>"Tanking" is a method of fighting in which you direct all damage to a
+    single (Tank) fleet. Generally, you want this fleet made of of Frigates, but as you get stronger you may want to
+    mix in Destroyers.</p>
+    <p>Ideally, when fighting, you'll have one Tank fleet, one fleet with your strongest ships, and then any other
+    fleets made up of the rest of your strong ships.</p>
+    <p>Begin by moving all of your combat fleets to VERY close proximity to the target. Once all fleets arrive,
+    initiate combat with ONLY your Tank fleet. Once the battle starts, the other fleets will auto-engage.</p>
+    <p>After combat concludes you will only have your Tank fleet damaged. If you want to continue fighting, move
+    your non-tank fleets close to the next target, but (if you can) bring your tank back to your station.</p>
+    <p>When your tank fleet arrives <strong>DO NOT REPAIR IT</strong>. Tap on each ship type in the fleet and then
+    tap "Send to Dock", then use the slider to re-stock the fleet.</p>
+    <p>Occasionally, you'll want to then tap on "Dock" on the top and initiate repair from there; you can still only
+    have 1 repair going at a time, but this way you don't ALSO lock down a fleet.</p>
+    <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
+    the other fleets have already arrived), and repeat the process.</p>
+  </div>
+  <div id="quick-tips" class="toggled written">
+    <ul>
+      <li>Always have a Frigate in your fleet; it will balance your movement and jump speed to keep your arrivals
+      synced.
+      </li>
+      <li>You can select a legion enter it, join it, then disband it. Doing so will generate a new, random legion
+      of similar type, letting you get just the right difficulty/size/type/etc.
+      </li>
+      <li>When upgrading your station, you'll get an extra build slot.</li>
+      <li>When helping build Alliance structures, you can only send on Workship per building.</li>
+      <li>You can retreat a fleet from a battle by tapping on it from the battle screen, then tapping the "Return"
+      button. Doing so will immediately move the fleet back to your station, but cause 10% damage. This can be
+      a fast way to return from long distances... at a price.
+      </li>
+      <li>Stabilizing fleets cannot move... but they can fight back.</li>
+      <li>The <span class="item">1,000 Station Jump Charge</span> item will add 1/5 of your jump energy back.</li>
+    </ul>
+  </div>
+  <div id="alliance-ships" class="toggled">
+    <div>
+      All ships which can be purchased with Alliance Points are designed for tanking. Based on their stats (below),
+      The Knight II Light Cruisers are the best available, with the Eagle II's second. The Tiger II Destroyer should
+      be avoided and the Enterprise and Crown are too time-expensive to be truely worthwhile.
+    <div class="figure">
+      <img src="images/alliance_shield.png"/>
+      (Shield provided per Alliance Point/Leadership cost as a percentage of best ratio)
     </div>
-    <div id="quick-tips" class="toggled written">
-        <ul>
-            <li>Always have a Frigate in your fleet; it will balance your movement and jump speed to keep your arrivals
-                synced.
-            </li>
-            <li>You can select a legion enter it, join it, then disband it. Doing so will generate a new, random legion
-                of similar type, letting you get just the right difficulty/size/type/etc.
-            </li>
-            <li>When upgrading your station, you'll get an extra build slot.</li>
-            <li>When helping build Alliance structures, you can only send on Workship per building.</li>
-            <li>You can retreat a fleet from a battle by tapping on it from the battle screen, then tapping the "Return"
-                button. Doing so will immediately move the fleet back to your station, but cause 10% damage. This can be
-                a fast way to return from long distances... at a price.
-            </li>
-            <li>Stabilizing fleets cannot move... but they can fight back.</li>
-            <li>The <span class="item">1,000 Station Jump Charge</span> item will add 1/5 of your jump energy back.</li>
-        </ul>
+    <div class="figure">
+      <img src="images/alliance_attack.png"/>
+      (Attack provided per Alliance Point/Leadership cost as a percentage of best ratio)
     </div>
+    </div>
+  </div>
 </div>
 
 <h3>Ship Loadouts</h3>
-<div class="container">
+<div>
+  <div class="container">
     <div class="toggler" onClick="toggleSection(this, 'falcon-tank-image')">
-        Falcon II Frigate Tank
+      Falcon II Frigate Tank
     </div>
     <div class="toggler" onClick="toggleSection(this, 'knight-image')">
-        Knight Light Cruiser
+      Knight Light Cruiser
     </div>
     <div class="toggler" onClick="toggleSection(this, 'warrior-image')">
-        Warrior Light Cruiser
+      Warrior Light Cruiser
     </div>
     <div class="toggler" onClick="toggleSection(this, 'raynor-image')">
-        Raynor Battle Cruiser
+      Raynor Battle Cruiser
     </div>
+  </div>
 
-    <div id="falcon-tank-image" class="toggled">
-      <div>
-        Why Missiles? If you unlock the "Improved Targeting" research under "Void", you'll have 2 sections that
-        boost Missiles, making them superior (especialy short-term, as tanks tend to be).
-      </div>
-        <img src="./images/falcon-tank-weapons.jpg"/>
-        <img src="./images/falcon-tank-components.jpg"/>
-      </div>
-    <div id="falcon-tank2-image" class="toggled">
-        <img src="./images/falcon-tank2-weapons.png"/>
-        <img src="./images/falcon-tank2-components.png"/>
+  <div id="falcon-tank-image" class="toggled">
+    <div>
+      Why Missiles? If you unlock the "Improved Targeting" research under "Void", you'll have 2 sections that
+      boost Missiles, making them superior (especialy short-term, as tanks tend to be).
     </div>
-    <div id="knight-image" class="toggled">
-        <img src="./images/knight-weapons.png"/>
-        <img src="./images/knight-components.png"/>
-    </div>
-    <div id="raynor-image" class="toggled">
-        <img src="./images/raynor-weapons.png"/>
-        <img src="./images/raynor-components.png"/>
-    </div>
-    <div id="warrior-image" class="toggled">
-        <img src="./images/warrior-weapons.png"/>
-        <img src="./images/warrior-components.png"/>
-    </div>
+    <img src="images/falcon-tank-weapons.jpg"/>
+    <img src="images/falcon-tank-components.jpg"/>
+  </div>
+  <div id="falcon-tank2-image" class="toggled">
+    <img src="images/falcon-tank2-weapons.png"/>
+    <img src="images/falcon-tank2-components.png"/>
+  </div>
+  <div id="knight-image" class="toggled">
+    <img src="images/knight-weapons.png"/>
+    <img src="images/knight-components.png"/>
+  </div>
+  <div id="raynor-image" class="toggled">
+    <img src="images/raynor-weapons.png"/>
+    <img src="images/raynor-components.png"/>
+  </div>
+  <div id="warrior-image" class="toggled">
+    <img src="images/warrior-weapons.png"/>
+    <img src="images/warrior-components.png"/>
+  </div>
 </div>
 <h3>Resources</h3>
-<div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a>
-</div>
-<div><a href="https://nova-empire.fandom.com/wiki/Dailys">Nova Empire Wiki -
-    Dailies</a></div>
+<div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a> </div>
+<div><a href="https://nova-empire.fandom.com/wiki/Dailys">Nova Empire Wiki - Dailies</a></div>
 </body>
 </html>

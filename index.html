@@ -3,11 +3,23 @@
 <html lang="en">
 <head>
 <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <title>Welcome Galactic Federation Members</title>
 
 <script>
+  function initSelection() {
+    console.log('trying');
+    if (localStorage.getItem('section')) {
+      const {sourceContent, divName} = JSON.parse(localStorage.getItem('section'));
+      const source = Array.prototype.find.call(document.getElementsByClassName('toggler'), 
+          (e) => e.textContent === sourceContent
+          );
+      toggleSection(source, divName);
+    }
+  }
+
   function toggleSection(source, divName) {
+    console.log(source.textContent);
     const element = document.getElementById(divName);
     const show = element.style.display !== 'block';
     Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
@@ -15,6 +27,7 @@
     if (show) {
       source.classList.add('active');
       element.style.display = 'block';
+      localStorage.setItem('section', JSON.stringify({sourceContent: source.textContent, divName}));
     }
   }
 </script>
@@ -111,7 +124,8 @@
   }
 
   .active {
-    background-color: #CCCCCC;
+    font-weight: bold;
+    text-decoration: underline;
   }
 
   .quick-note {
@@ -148,9 +162,9 @@
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
-<body>
+<body onLoad="initSelection()">
 <div id="left" class="column">
-  <div class="top-left">*GF/NW3</div>
+  <div class="top-left">*GF & NW3</div>
   <div class="bottom sidebar">
     <div class="heading">Super-useful data</div>
     <div class="toggler" onClick="toggleSection(this, 'scan-image')">Scan Chain Rewards</div>
@@ -319,10 +333,6 @@
       </table>
     </div>
     <div id="falcon-tank-image" class="toggled">
-      <div>
-        Why Missiles? If you unlock the "Improved Targeting" research under "Void", you'll have 2 sections that
-        boost Missiles, making them superior (especialy short-term, as tanks tend to be).
-      </div>
       <img src="images/falcon-tank-weapons.jpg"/>
       <img src="images/falcon-tank-components.jpg"/>
     </div>

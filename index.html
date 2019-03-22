@@ -8,7 +8,6 @@
 
 <script>
   function initSelection() {
-    console.log('trying');
     if (localStorage.getItem('section')) {
       const {sourceContent, divName} = JSON.parse(localStorage.getItem('section'));
       const source = Array.prototype.find.call(document.getElementsByClassName('toggler'), 
@@ -201,14 +200,14 @@
         <li><input type="checkbox"/>Complete all 3 of your legion missions (15 Points)</li>
         <li><input type="checkbox"/>Build 10 ships (15 Points)</li>
         <li><input type="checkbox"/>Use Resources
-        <div class="written">300,000 Minerals (Big ships, Station upgrades, etc.) (15 Points)</div>
-        <div class="written">30,000 Cyrstals (Big ships, Research, etc.) (15 Points)</div>
+        <span>300,000 Minerals (Big ships, Station upgrades, etc.) (15 Points)</span>
+        <span>30,000 Cyrstals (Big ships, Research, etc.) (15 Points)</span>
         </li>
         <li><input type="checkbox"/>Use Items
-        <div class="written">Check your daily list for what sort of Resource Item is necessary. Go into Items -
+        <span>Check your daily list for what sort of Resource Item is necessary. Go into Items -
           Resources and find the 10Gec item. Buy and Use 3 times. You will need to use a total of 5 items, so
           if you have some stocked, use them, otherwise Buy and Use 2 more times. (20 Points)
-        </div>
+        </span>
         </li>
         <li><input type="checkbox"/>Accept the Free Items 5 times.** (15 Points)</li>
         <li><input type="checkbox"/>Open Navy Acadamy, use a refresh token. (10 Points)</li>

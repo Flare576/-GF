@@ -19,6 +19,7 @@
 
   function toggleSection(source, divName) {
     console.log(source.textContent);
+    document.getElementById('top-right').textContent = source.textContent;
     const element = document.getElementById(divName);
     const show = element.style.display !== 'block';
     Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
@@ -57,13 +58,16 @@
     flex-shink: 0;
     background-color: #F0F0F0;
     text-align: center;
+    font-size: 18px;
     font-weight: bold;
-    font-size: 20px;
   }
 
-  .top-right {
+  #top-right {
+    font-weight: bold;
+    font-size: 20px;
     flex-shrink: 0;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
   }
 
   .bottom {
@@ -170,8 +174,9 @@
     <div class="toggler" onClick="toggleSection(this, 'elite-image')">Elite Rewards</div>
     <div class="toggler" onClick="toggleSection(this, 'dailies')">Dailies Checklist</div>
     <div class="toggler" onClick="toggleSection(this, 'tanking')">Tanking Guide</div>
-    <div class="toggler" onClick="toggleSection(this, 'quick-tips')">Quick Tips</div>
     <div class="toggler" onClick="toggleSection(this, 'alliance-ships')">Alliance Ship Analysis</div>
+    <div class="toggler" onClick="toggleSection(this, 'legion-tips')">Legion Tips</div>
+    <div class="toggler" onClick="toggleSection(this, 'quick-tips')">Quick Tips</div>
     <div class="toggler" onClick="toggleSection(this, 'resources')">Resources</div>
     <div class="heading">Ship Loadouts</div>
     <div class="toggler" onClick="toggleSection(this, 'falcon-tank-image')">Falcon II Frigate Tank</div>
@@ -181,7 +186,7 @@
   </div>
 </div>
 <div id="right" class="column">
-  <div class="top-right"></div>
+  <div id="top-right"></div>
   <div class="bottom content">
     <div id="scan-image" class="toggled"><img src="images/scan_chain.jpg"/></div>
     <div id="elite-image" class="toggled"><img src="images/elite-frags.png"/> </div>
@@ -247,17 +252,21 @@
       <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
       the other fleets have already arrived), and repeat the process.</p>
     </div>
-    <div id="quick-tips" class="toggled written">
+    <div id="legion-tips" class="toggled written">
       <ul>
         <li>Failing a Legion doesn't consume your legion points; Push yourself to aim high!</li>
         <li>3-5 player legions yield more Alliance rewards than 2-3 player.</li>
         <li>The payout of a legion is divided among the participants based on contribution, but it's always better
           to have the MINIMUM number of participants.</li>
-        <li>Be aware of fleet speed. Fleets move as fast as their slowest ship type, so if you want all of your fleets
-        to arrive at about the same time, ensure all of them have at least 1 of the same type of ship.
-        </li>
         <li>You can select a legion enter it, join it, then disband it. Doing so will generate a new, random legion
         of similar type, letting you get just the right difficulty/size/type/etc.
+        </li>
+      </ul>
+    </div>
+    <div id="quick-tips" class="toggled written">
+      <ul>
+        <li>Be aware of fleet speed. Fleets move as fast as their slowest ship type, so if you want all of your fleets
+        to arrive at about the same time, ensure all of them have at least 1 of the same type of ship.
         </li>
         <li>When upgrading your station, you'll get an extra build slot.</li>
         <li>When helping build Alliance structures, you can only send on Workship per building.</li>

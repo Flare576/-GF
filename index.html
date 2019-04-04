@@ -4,31 +4,29 @@
 <head>
 <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-<title>Welcome Galactic Federation Members</title>
+<title>Welcome NW3 and *GF!</title>
 
 <script>
+  const storageName = 'sourceId';
+
   function initSelection() {
-    if (localStorage.getItem('section')) {
-      const {sourceContent, divName} = JSON.parse(localStorage.getItem('section'));
-      const source = Array.prototype.find.call(document.getElementsByClassName('toggler'), 
-          (e) => e.textContent === sourceContent
-          );
-      toggleSection(source, divName);
+    const dest = window.location.hash || localStorage.getItem(storageName) || '';
+
+    if (dest) {
+      toggleSection(dest.replace('#',''));
     }
   }
 
-  function toggleSection(source, divName) {
-    console.log(source.textContent);
-    document.getElementById('top-right').textContent = source.textContent;
-    const element = document.getElementById(divName);
-    const show = element.style.display !== 'block';
-    Array.prototype.forEach.call(element.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
-    Array.prototype.forEach.call(source.parentElement.getElementsByClassName('toggler'), (e) => e.classList.remove('active'));
-    if (show) {
-      source.classList.add('active');
-      element.style.display = 'block';
-      localStorage.setItem('section', JSON.stringify({sourceContent: source.textContent, divName}));
-    }
+  function toggleSection(sourceId) {
+    const trigger = document.getElementById(sourceId);
+    document.getElementById('top-right').textContent = trigger.textContent;
+    const content = document.getElementById(`${sourceId}-t`);
+    Array.prototype.forEach.call(content.parentElement.getElementsByClassName('toggled'), (e) => e.style.display = 'none');
+    Array.prototype.forEach.call(trigger.parentElement.getElementsByClassName('toggler'), (e) => e.classList.remove('active'));
+    trigger.classList.add('active');
+    content.style.display = 'block';
+    localStorage.setItem(storageName, sourceId);
+    history.replaceState(undefined, undefined, `#${sourceId}`);
   }
 </script>
 <style type="text/css">
@@ -170,27 +168,27 @@
   <div class="top-left">*GF & NW3</div>
   <div class="bottom sidebar">
     <div class="heading">Super-useful data</div>
-    <div class="toggler" onClick="toggleSection(this, 'scan-image')">Scan Chain Rewards</div>
-    <div class="toggler" onClick="toggleSection(this, 'elite-image')">Elite Rewards</div>
-    <div class="toggler" onClick="toggleSection(this, 'dailies')">Dailies Checklist</div>
-    <div class="toggler" onClick="toggleSection(this, 'tanking')">Tanking Guide</div>
-    <div class="toggler" onClick="toggleSection(this, 'alliance-ships')">Alliance Ship Analysis</div>
-    <div class="toggler" onClick="toggleSection(this, 'legion-tips')">Legion Tips</div>
-    <div class="toggler" onClick="toggleSection(this, 'quick-tips')">Quick Tips</div>
-    <div class="toggler" onClick="toggleSection(this, 'resources')">Resources</div>
+    <div class="toggler" id="scan-image" onClick="toggleSection('scan-image')">Scan Chain Rewards</div>
+    <div class="toggler" id="elite-image" onClick="toggleSection('elite-image')">Elite Rewards</div>
+    <div class="toggler" id="dailies" onClick="toggleSection('dailies')">Dailies Checklist</div>
+    <div class="toggler" id="tanking" onClick="toggleSection('tanking')">Tanking Guide</div>
+    <div class="toggler" id="alliance-ships" onClick="toggleSection('alliance-ships')">Alliance Ship Analysis</div>
+    <div class="toggler" id="legion-tips" onClick="toggleSection('legion-tips')">Legion Tips</div>
+    <div class="toggler" id="quick-tips" onClick="toggleSection('quick-tips')">Quick Tips</div>
+    <div class="toggler" id="resources" onClick="toggleSection('resources')">Resources</div>
     <div class="heading">Ship Loadouts</div>
-    <div class="toggler" onClick="toggleSection(this, 'falcon-tank-image')">Falcon II Frigate Tank</div>
-    <div class="toggler" onClick="toggleSection(this, 'knight-image')">Knight Light Cruiser</div>
-    <div class="toggler" onClick="toggleSection(this, 'warrior-image')">Warrior Light Cruiser</div>
-    <div class="toggler" onClick="toggleSection(this, 'raynor-image')">Raynor Battle Cruiser</div>
+    <div class="toggler" id="falcon-tank-image" onClick="toggleSection('falcon-tank-image')">Falcon II Frigate Tank</div>
+    <div class="toggler" id="knight-image" onClick="toggleSection('knight-image')">Knight Light Cruiser</div>
+    <div class="toggler" id="warrior-image" onClick="toggleSection('warrior-image')">Warrior Light Cruiser</div>
+    <div class="toggler" id="raynor-image" onClick="toggleSection('raynor-image')">Raynor Battle Cruiser</div>
   </div>
 </div>
 <div id="right" class="column">
   <div id="top-right"></div>
   <div class="bottom content">
-    <div id="scan-image" class="toggled"><img src="images/scan_chain.jpg"/></div>
-    <div id="elite-image" class="toggled"><img src="images/elite-frags.png"/> </div>
-    <div id="dailies" class="toggled written dailies">
+    <div id="scan-image-t" class="toggled"><img src="images/scan_chain.jpg"/></div>
+    <div id="elite-image-t" class="toggled"><img src="images/elite-frags.png"/> </div>
+    <div id="dailies-t" class="toggled written dailies">
       <div style="color:red">I don't believe this is a full list yet. Feel free to comment on Discord.</div>
       <div>To accomplish all of your dailies with a net-positive Gec and admiral refresh, do the following:</div>
       <ul>
@@ -236,7 +234,7 @@
         <p>The 150 Point box will yield 2 refresh tokens, resulting in a net gain of 1.</p>
       </div>
     </div>
-    <div id="tanking" class="toggled written"><p>"Tanking" is a method of fighting in which you direct all damage to a
+    <div id="tanking-t" class="toggled written"><p>"Tanking" is a method of fighting in which you direct all damage to a
       single (Tank) fleet. Generally, you want this fleet made of of Frigates, but as you get stronger you may want to
       mix in Destroyers.</p>
       <p>Ideally, when fighting, you'll have one Tank fleet, one fleet with your strongest ships, and then any other
@@ -252,7 +250,7 @@
       <p>You will then fly your tank fleet out to the target (or tap the target and initiate attack with the tank if
       the other fleets have already arrived), and repeat the process.</p>
     </div>
-    <div id="legion-tips" class="toggled written">
+    <div id="legion-tips-t" class="toggled written">
       <ul>
         <li>Failing a Legion doesn't consume your legion points; Push yourself to aim high!</li>
         <li>3-5 player legions yield more Alliance rewards than 2-3 player.</li>
@@ -263,7 +261,7 @@
         </li>
       </ul>
     </div>
-    <div id="quick-tips" class="toggled written">
+    <div id="quick-tips-t" class="toggled written">
       <ul>
         <li>Be aware of fleet speed. Fleets move as fast as their slowest ship type, so if you want all of your fleets
         to arrive at about the same time, ensure all of them have at least 1 of the same type of ship.
@@ -280,7 +278,7 @@
         <li>The <span class="item">1,000 Station Jump Charge</span> item will add 1/5 of your jump energy back.</li>
       </ul>
     </div>
-    <div id="alliance-ships" class="toggled">
+    <div id="alliance-ships-t" class="toggled">
       <div class="written">
         All ships which can be purchased with Alliance Points are designed for tanking. Based on their stats (below),
         The Knight II Light Cruisers are the best available, with the Eagle II's second. The Tiger II Destroyer should
@@ -345,27 +343,27 @@
         </tr>
       </table>
     </div>
-    <div id="falcon-tank-image" class="toggled">
+    <div id="falcon-tank-image-t" class="toggled">
       <img src="images/falcon-tank-weapons.jpg"/>
       <img src="images/falcon-tank-components.jpg"/>
     </div>
-    <div id="falcon-tank2-image" class="toggled">
+    <div id="falcon-tank2-image-t" class="toggled">
       <img src="images/falcon-tank2-weapons.png"/>
       <img src="images/falcon-tank2-components.png"/>
     </div>
-    <div id="knight-image" class="toggled">
+    <div id="knight-image-t" class="toggled">
       <img src="images/knight-weapons.png"/>
       <img src="images/knight-components.png"/>
     </div>
-    <div id="raynor-image" class="toggled">
+    <div id="raynor-image-t" class="toggled">
       <img src="images/raynor-weapons.png"/>
       <img src="images/raynor-components.png"/>
     </div>
-    <div id="warrior-image" class="toggled">
+    <div id="warrior-image-t" class="toggled">
       <img src="images/warrior-weapons.png"/>
       <img src="images/warrior-components.png"/>
     </div>
-    <div id="resources" class="toggled">
+    <div id="resources-t" class="toggled">
       <div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a> </div>
       <div><a href="https://nova-empire.fandom.com/wiki/Dailys">Nova Empire Wiki - Dailies</a></div>
     </div>

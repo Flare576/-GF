@@ -57,17 +57,26 @@
     flex-grow: 1;
   }
 
+  @media (max-width: 700px) {
+  /* For mobile phones: */
+    #right {
+      background-color: blue;
+      font-size: .75em;
+      width: 100%;
+    }
+  }
+
   .top-left {
     flex-shink: 0;
     background-color: #F0F0F0;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
   }
 
   #top-right {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -112,7 +121,7 @@
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.125rem;
     background-color: #EEEEEE;
   }
 
@@ -121,7 +130,7 @@
     color: blue;
     background-color: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: .875rem;
     font-weight: normal;
   }
 
@@ -152,11 +161,7 @@
     list-style: none;
   }
 
-  .item {
-    font-style: italic;
-  }
-
-  .mission {
+  .item, .mission, .core-name {
     font-style: italic;
   }
 
@@ -185,6 +190,7 @@
     <div class="toggler" id="alliance-ships" onClick="toggleSection('alliance-ships')">Alliance Ship Analysis</div>
     <div class="toggler" id="legion-tips" onClick="toggleSection('legion-tips')">Legion Tips</div>
     <div class="toggler" id="quick-tips" onClick="toggleSection('quick-tips')">Quick Tips</div>
+    <div class="toggler" id="cores" onClick="toggleSection('cores')">Cores and Modules</div>
     <div class="toggler" id="resources" onClick="toggleSection('resources')">Resources</div>
     <div class="heading">Ship Loadouts</div>
     <div class="toggler" id="falcon-tank-image" onClick="toggleSection('falcon-tank-image')">Falcon II Frigate Tank</div>
@@ -220,14 +226,10 @@
         </li>
         <li><input type="checkbox"/>Use Items + Use GEC lvl1 (20 Points)
         <ul>
-          <li>
-            <ul>
-              <li>Check your daily list for what sort of Resource Item is necessary.</li>
-              <li>Go into Items - Resources and find the 10Gec item.</li>
-              <li>Buy and Use 3 times.</li>
-              <li>If you have items stocked, use 2 of them, or Buy and Use 2 more times.</li>
-            </ul>
-          </li>
+            <li>Check your daily list for what sort of Resource Item is necessary.</li>
+            <li>Go into Items - Resources and find the 10Gec item.</li>
+            <li>Buy and Use 3 times.</li>
+            <li>If you have items stocked, use 2 of them, or Buy and Use 2 more times.</li>
         </ul>
         </li>
         <li><input type="checkbox"/>Accept the Free Items 5 times.** (15 Points)</li>
@@ -389,6 +391,18 @@
     <div id="warrior-image-t" class="toggled">
       <img src="images/warrior-weapons.png"/>
       <img src="images/warrior-components.png"/>
+    </div>
+    <div id="cores-t" class="toggled written">
+      <p>The level of your core is based on the levels of the modules installed into it. When on the "Install" tab of
+      the Core interface, pay attention to the symbol in the middle; the order on the Install tab may not match the
+      order on the Core tab.</p>
+      <p>You probably want to focus your Green/Blue/Purple/Gold modules into the
+      <span class="core-name">Materials Nexus</span>, which will improve your repair times as it levels up.</p>
+      <p>Based solely on <a href="https://www.urbandictionary.com/define.php?term=Armchair%20Expert" target="_blank">
+        arm-chair</a> theories, it makes more sense to put time into <span class='item'>Admiral Damage</span> under
+        <span class="item">Attack</span> than into individual weapons under <span class="item">Weapons</span>, at least
+        until you start hitting level 20 and get better returns on the faster times.</p>
+      <p>Sorry there isn't more here; we're still learning about the effectiveness of modules, good mixes, etc.</p>
     </div>
     <div id="resources-t" class="toggled">
       <div><a href="https://www.reddit.com/r/NovaEmpire/">Nova Empire Subreddit</a> </div>
